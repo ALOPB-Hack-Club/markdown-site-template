@@ -1,121 +1,94 @@
-# Astro website template
+# Strona markdown
 
-Zaimportuj szalon do *Replit.com* ⬇
+## Konfiguracja lokalna krok po kroku
 
-[![Run on Repl.it](https://replit.com/badge/github/ALOPB-Hack-Club/astro-website-template)](https://replit.com/new/github/ALOPB-Hack-Club/astro-website-template)
+### Instalacja Node i npm
 
-## 🚀 Struktura projektu
+Zacznijmy od najtrudniejszego kroku - spróbujemy zainstalować NodeJS i npm.  
+[Wejdź na stronę instalacji tutaj.](https://nodejs.org/en)  
+Jeśli masz uprawnienia administratorskie na twoim koncie, wciśnij przycisk pobrania. Pamiętaj żeby pobrać Node w wersji 18 lub nowszej.
 
-Szablon składa się z kilku ważnych katalogów, w których umieszczamy pliki.
+Trudniej jest wtedy, kiedy nie masz uprawnień administratorskich na koncie.  
+[Przejdź tutaj](https://nodejs.org/en/download) i pobierz plik `.zip` dla 64-bitowej wersji systemu. Następnie go rozpakuj.
+Skopiuj ścieżkę do rozpakowanego katalogu.
 
-```text
-/
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.md
-└── .gitignore
-```
+![Alt text](assets/node-dir.png)
 
-Plik `index.md` jest naszą stroną, napisaną w markdownie.
+Następnie przejdź do konfiguracji zmiennych środowiskowych dla własnego konta. Można to uczynić poprzez wyszukanie opcji:
 
-`Layout.astro` jest natomiast otoczką na stronę. Można ją podpiąć do strony w markdownie poprzez dodanie nastepującego fragmentu kodu na początku pliku `.md`:
-```
----
-layout: '../layouts/Layout.astro'
----
-```
+![Alt text](assets/env-search.png)
 
-Dotatkowo jest kilka katalogów, w których nie umieszczamy kodu.
-Są to:
-- `.vscode` - pliki pomocnicze programu *Visual Studio Code*
-- `node_modules` - pobrane moduły (zależności) projektu
-- `dist` - pliki zbudowanej strony, które finalnie umieścimy na serwerze
+Powinno ci się pojawić takie okno:
 
-Wszystkie statyczne zasoby takie jak obrazy czy zdjęcia powinny znaleść się w katalogu `public/`.
+![Alt text](assets/env-options.png)
 
-Oprócz tego znaczącym plikiem jest `.gitignore` - pliki o nazwach podanych w tym pliku nie podlegają wersjonowaniu.
+Przejdź do zmiennej PATH i dodaj tam wcześniej skopiowaną ścieżkę do katalogu z NodeJS i npm:
 
-I wreszcie `netlify.toml` oraz `.replit`, czyli pliki zawierające odpowienio ustawienia stawiania (deploymentu) strony oraz konfigurację projektu na stronie [replit](https://replit.com/~).
+![Alt text](assets/env-path.png)
 
-Astro zwraca uwagę na pliki `.astro` oraz `.md` znajdujące się w katalogu `src/pages/`. Każda strona w tym samym katalogu powinna mieć unikatową nazwę.
+Zapisz ustawienia zmiennych środowiskowych. Najtrudniejsze jeest już za tobą!
 
-## 🏗️ Rozbudowane ścieżki stron
+Niezależnie od sposobu instalacji admin czy non-admin, warto potwierdzić instalację node i npm. Wejdź w konsolę Windows (na przykład poprzez wyszukanie aplikacji "Wiersz polecenia" lub "cmd"), i wpisz 2 komendy:
 
-Aby zagnieździć (znestować) ścieżkę naszej strony np. `blog/pierwszy-wpis` należy utworzyć katalog. Dodatkowo tworząc plik `index.md` bądź `index.astro` możemy zdefiniować co znajdzie się na samej ścieżce `/blog/`.
-```text
-pages/
-├── index.astro
-└── blog/
-    ├── index.md          <-- `blog/`    
-    └── pierwszy-wpis.md  <-- `blog/pierwszy-wpis/`
-```
+- `node -v`
+- `npm -v`.
 
-## 📘 Krok po kroku
+![Alt text](assets/node-install-success.png)
 
-### ⚒️ Tworzenie strony
-Włącz serwer deweloperski, umożliwiający podgląd strony podczas pisania kodu.
+Pojawienie się numerów wersji jest dobrym znakiem, który oznacza, że i Node i npm są pomyślnie zainstalowane.  
+Jeśli jednak system nie odnalazł plików, trzeba uważnie przeanalizować wszystkie podjęte kroki jeszcze raz, żeby zobaczyć, czy czegoś nie brakuje.
+
+### Instalacja VSCode
+
+Ten program będzie ci służył jako edytor kodu.
+
+[Przejdź na stronę instalacji VSCode.](https://code.visualstudio.com/)
+
+Wciśnij przycisk `Download for Windows` po lewej stronie i podążaj za instrukcjami.  
+Tym razem żadne uprawnienia administratorskie nie są wymagane.
+
+### Konfiguracja VSCode
+
+#### Rozszerzenia
+
+Rozszerzenia umożliwiają pracę z różnymi językami programowania jak również zmieniają wygląd programu czy rozszerzają funkcjonalność. Są one opcjonalne, ale warto rozważyć ich zainstalowanie.
+
+##### One Dark Pro
+
+Najpopularniejszy styl edytora, zmieniający tło oraz programu oraz kolor czionek.
+
+##### Material Theme Icons
+
+Najpopularniejszy styl ikonek. Ikonki same zmieniają wygląd przy zmianie nazwy pliku czy folderu.
+
+##### Better Comments
+
+Ulepszone komentarze w kodzie. Pozwala zmieniać nudy, szary kolor komentarzy na dowolny kolor - na przykład kolor czerwony do ostrzeżeń czy niebieski do informacji.
+
+##### Error Lens
+
+Wyświetla treść błędów bezpośrednio w linii, w której wystąpił błąd. Dzięki temu nie musisz najeżdżać myszką na *czerwoną falkę* aby zobaczyć treść błędu.
+
+#### Czcionka
+
+Ważne aby czionka była czytelna i prosta. Do programowania polecam czionkę *Fira Code*.
+
+Jeżeli używasz `choco`, wystarczy wykonać polecenie:
 ```shell
-npm run dev
-```
-Po każdorazowym zapisie pliku, strona znajdująca się pod adresem `http://localhost:4321/` zostanie zaktualizowana.
+choco install firacode
+``` 
 
-Możesz teraz edytować pliki, eksperymentować i stworzyć jedyną w swoim rodzaju stronę internetową!
+Aby zmienić czionkę w edytorze ustawień: w sekcji "Commonly Used" rozwiń ustawienia "Text Editor", a następnie kliknij "Font". W polu "Font Family" wpisz *Fira Code*, zastępując całą poprzedznią treść. Zaznacz pole "Enables/Disables font ligatures" w sekcji "Font Ligatures", aby włączyć specjalne ligatury, czyli kombinacje znaków które w ustawieniu obok siebie zmieniają wygląd.
 
-### 🌐 Publikacja
-Gdy uznasz, że świat jest już gotowy na twoją piękną stronę, zainstaluj CLI (command line interface) *Netlify*.
-```shell
-npm install netlify-cli -g
-```
+[Tutaj](https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions) znajduje się pełna instrukcja instalacji oraz włączenia cznionki w programie VSCode.
 
-Teraz możesz wywołać nowo dodane narzędzie za pomocą polecenia `netlify`.
-Użycie komend `netlify` pozwoli Ci opublikować w prosty sposób swoją stronę. Wcześniej należy być zalogowanym w przeglądarce na konto *Netlify*, aby powiązać nasze konto z narzędziem konsolowym.
-```shell
-netlify deploy
-```
-#### 📡 Powiązanie narzędzia z kontem Netlify
-W przypadku kiedy konto nie zostało jeszcze powiązane w przeglądarce powinno otworzyć się okno:
+### GitHub Desktop
 
-![Netlify authorize](doc/netlify-authorize.png)
+GitHub Desktop to wygodny program służący do łatwej kontroli wersji (wersjonowania, czyli zapisywania stanu projektu).
 
-> **Note**
-> Na platformie *Replit* strona **może nie otworzyć się sama**, dlatego należy wtedy wejść w link podany w terminalu.
+[Pobierz GitHub Desktop](https://desktop.github.com/)
 
-
-#### 🚀 Wdrażanie (deployment)
-Jeżeli wcześniej strona nie była publikowana, wyświetlony zostanie następujący komunikat.
-```text
-This folder isn't linked to a site yet
-? What would you like to do? 
-  Link this directory to an existing site 
-❯ +  Create & configure a new site
-```
-
-Wybierając drugą opcję, domyślnie zaznaczoną, klawiszem *enter* możemy stworzyć wersję testową, która będzie już publiczna w internecie. Następnie, wybieramy zespół, w którym znajdzie się nasza aplikacja - zwykle będzie to zespół *Personal*. Potem możemy nadać własną nazwę strony, bądź zostawić pole puste aby otrzymać losowo wygenerowaną nazwę. Wchodząc w link *Website draft URL* możemy zobaczyć swoją stronę umieszczoną już na zewnętrznym serwerze.
-
-Jeżeli chcesz, aby twoja strona była zapisana, ponownie wpisz komendę `netlify deploy` tym razem dodając do niej flagę `--prod`, która spowoduje, że strona zostanie przypisana do naszego konta.
-
-```shell
-netlify deploy --prod
-```
-
-Aby zobaczyć naszą stronę na naszym koncie, możemy szybko przejść tam za pomocą komendy
-```shell
-netlify open
-```
-
-Z poziomu panelu *Netlify* możesz zarządać swoimi stronami oraz zmieniać takie parametry jak finalny URL strony!
-
-
-#### CI (continuous integration)
-
-Aby zautomatyzować powyższy proces, należy połączyć repozytorium *GitHub* z projektem *Netlify*. Dzięki temu *Netlify* zrobi za Ciebie robotę za każdym razem kiedy wyślesz zmiany do podłączonego repozytorium.
-*deploymentu*. 
-
-![Countinuous integration schema](doc/continuous-integration-schema.png)
-
-Możesz się teraz cieszyć automatycznie aktualizującą się stroną internetowej, na której możesz umieścić co chcesz!
+Wciśnij przycisk `Download for Windows`, a następnie podążaj za instrukcjami instalacji. Tu również nie są wymagane żadne uprawnienia administratorskie.
 
 ## 🧞 Komendy
 
@@ -129,7 +102,3 @@ Możesz wywołać wszystkie komendy w konsoli znajdując się w głównej ście�
 | `npm run preview`         | Włącza podgląd finalnej wersji strony (pliki znajdujące się w `./dist/`) |
 | `npm run astro ...`       | Wykonuje polecenia frameworka Astro `astro add`, `astro check`           |
 | `npm run astro -- --help` | Wyświetla pomoc dotyczącą Astro                                          |
-
-## 👀 Dokumentacja
-
-[Oficjalna dokumentacja Astro ➚](https://docs.astro.build)
