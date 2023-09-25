@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Moja strona HTML">
+  <h1>Strona HTML</h1>
+   Strona ta celowo wygląda podobnie jak strona markdown, żeby można było
+  skutecznie porównać markdown do HTML.<br />
+
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+    Oficjalna dokumentacja HTML i nie tylko
+  </a>
+
+  <hr />
+
+  <h1>Gigantyczny tekst</h1>
+  <h2>Duży tekst</h2>
+  <h3>Średni tekst</h3>
+  <h4>Mały tekst</h4>
+  <h5>Bardzo mały tekst</h5>
+  <h6>Mikroskopijny tekst</h6>
+
+  <hr />
+
+  <p>
+    Aby zacząć od nowej linijki, musisz zakończyć poprzednią co najmniej 2
+    spacjami.<br />
+     Ten tekst jest od nowej linijki.
+  </p>
+
+  <p>A ten ma dodatkowy odstęp.</p>
+
+  <hr />
+
+  <p><em>To jest pochylony tekst</em></p>
+  <p><strong>To jest pogrubiony tekst</strong></p>
+  <p><em><strong>Ten jest i pogrubiony, i pochylony</strong></em></p>
+  <p><s>A ten jest skreślony.</s></p>
+
+  <hr />
+
+  <p>Uporządkowana lista:</p>
+  <ol>
+    <li>Zjeść śniadanie</li>
+    <li>Umyć zęby</li>
+    <li>Iść do szkoły</li>
+  </ol>
+
+  <p>Nieuporządkowana lista:</p>
+  <ul>
+    <li>Informatyka</li>
+    <li>Matematyka</li>
+    <li>Fizyka</li>
+  </ul>
+
+  <p>Listy mogą być złożone z innych list:</p>
+  <ul>
+    <li>Informatyka</li>
+    <li>
+      Matematyka
+      <ul>
+        <li>Trygonometria</li>
+        <li>Wielomiany</li>
+      </ul>
+    </li>
+    <li>Fizyka</li>
+  </ul>
+
+  <hr />
+
+  <p>Tekst zamknięty w znakach <code>`</code> (backtick) ma inny font.</p>
+  <p>Aby wypisać dane w Pythonie, użyj funkcji <code>print()</code>.</p>
+
+  <pre><code>
+a = 2
+b = 3
+print(a+b)
+  </code></pre>
+
+  <p>Kod w blokach można kolorować według danego języka:</p>
+  <pre><code class="language-python">
+a = 2
+b = 3
+print(a+b)
+  </code></pre>
+
+  <hr />
+
+  <p>
+    Tekst wygodnie jest rozdzielać przy użyciu poziomej kreski. Można wpisać
+    trzy myślniki z linijką odstępu przed i po.
+  </p>
+
+  <hr />
+
+  <p>
+    <a href="https://github.com/ALOPB-Hack-Club">ALOPB hack club na GitHubie</a>
+  </p>
+</Layout>
